@@ -30,12 +30,24 @@
 
 // ------------ stack memory
 
+// fn main() {
+//     let integer: u8 = 34;
+//     pass_integer(integer);
+//     println!("int passing..{}", integer);// this will run successfully cause it works on stack
+// }
+
+// fn pass_integer(value:u8) {
+//     println!("int passing..{}", value);
+// }
+
+//using references to avoid ownership transfer
+
 fn main() {
-    let integer: u8 = 34;
-    pass_integer(integer);
-    println!("int passing..{}", integer);// this will run successfully cause it works on stack
+    let s1: String = String::from("Hello, world!");
+    fn_str_pass(&s1); // pass reference to the function
+    println!("s1 printing..{}", s1); // this will run successfully cause we still own s1
 }
 
-fn pass_integer(value:u8) {
-    println!("int passing..{}", value);
+fn fn_str_pass(value: &String) {
+    println!("s2 printing..{}", value);
 }
