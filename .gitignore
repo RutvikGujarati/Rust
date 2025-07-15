@@ -1,1 +1,3 @@
-/target
+/Solana_setup/target
+# Ignore the target directory created by Rust's Cargo
+/Starting/target
