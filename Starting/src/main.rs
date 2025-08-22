@@ -1,20 +1,20 @@
-use std::io;
-use rand::Rng;
+// function to find a user by their username which returns an Option type
+fn get_user(username: &str) -> Option<&str> {
+    if username.is_empty() {
+        return None;
+    }
+
+    return Some(username);
+}
 
 fn main() {
-    let mut rng = rand::thread_rng();
-    let mut input = String::new();
-
-    println!("Enter a number between 1 and 10:");
-
-    io::stdin().read_line(&mut input).expect("Failed to read line");
-    let user_number: u32 = input.trim().parse().expect("Please enter a valid number");
-
-    let random_number: u32 = rng.gen_range(1..=10);
-
-    if user_number == random_number {
-        println!("Congratulations! You guessed the correct number: {}", random_number);
-    } else {
-        println!("Sorry, the correct number was: {}", random_number);
-    }
+    // returns an OptionCsjyPKhvea8Z8x7zEysNGUcRah5w6Sc18oaqo8796pGa
+    let user_option = get_user("Hari");
+    // use of match expression to get the result out of Option
+    let result = match user_option {
+        Some(user) => user,
+        None => "not found!",
+    };
+    // print the result
+    println!("user = {:?}", result);
 }
